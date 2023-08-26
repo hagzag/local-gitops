@@ -49,6 +49,7 @@ tasks:
     - task: jq
     - task: vault
     - task: hostctl
+    - task: bitwarden
 
   mkcert:
     cmds:
@@ -113,3 +114,10 @@ tasks:
       echo -e "Installing Vault CLI" && \
       {{if eq OS "windows"}}choco install vault \
       {{else}}brew tap hashicorp/tap && brew install hashicorp/tap/vault{{end}}
+
+  bitwarden:
+    cmds:
+    - |
+      echo -e "Installing Bitwarden CLI" && \
+      {{if eq OS "windows"}}choco install bitwarden \
+      {{else}}brew install bitwarden-cli{{end}}
